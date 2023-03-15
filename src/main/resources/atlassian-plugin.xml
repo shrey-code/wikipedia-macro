@@ -1,0 +1,32 @@
+<atlassian-plugin key="${atlassian.plugin.key}" name="${project.name}" plugins-version="2">
+    <plugin-info>
+        <description>${project.description}</description>
+        <version>${project.version}</version>
+        <vendor name="${project.organization.name}" url="${project.organization.url}" />
+        <param name="plugin-icon">images/pluginIcon.png</param>
+        <param name="plugin-logo">images/pluginLogo.png</param>
+    </plugin-info>
+
+    <!-- add our i18n resource -->
+    <resource type="i18n" name="i18n" location="wikipedia-macro"/>
+    <resource type="download" name="images/" location="/images"/>
+
+    <!-- add our web resources -->
+    <web-resource key="wikipedia-macro-resources" name="wikipedia-macro Web Resources">
+        <dependency>com.atlassian.auiplugin:ajs</dependency>
+        
+        <resource type="download" name="wikipedia-macro.css" location="/css/wikipedia-macro.css"/>
+        <resource type="download" name="wikipedia-macro.js" location="/js/wikipedia-macro.js"/>
+
+        <context>viewcontent</context>
+        <context>preview</context>
+    </web-resource>
+    <xhtml-macro name="wikipedia-macro" key="wikipedia-macro" class="com.example.plugins.tutorial.confluence.WikipediaMacro"
+                 icon="/download/resources/${atlassian.plugin.key}/images/wikipedia-macro.png">
+        <category name="external-content"/>
+        <parameters>
+            <parameter name="search" type="string" required="true"/>
+            <parameter name="placeholder" type="string" required="true"/>
+        </parameters>
+    </xhtml-macro>
+</atlassian-plugin>

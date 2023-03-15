@@ -1,0 +1,4 @@
+<div>
+    <a class="wiki-search" href="$wiki.pageLink"><em>$placeholder</em></a>
+    <span class="wiki-desc popup" style="display: none;">$wiki.shortDescription</span>
+</div>
